@@ -1,0 +1,222 @@
+const poles = [
+  {
+    number: "01",
+    title: "Sportif",
+    text: "Équipes, catégories, encadrement, calendriers et résultats : toute la vie sportive du club au même endroit.",
+    link: "Découvrir le pôle",
+  },
+  {
+    number: "02",
+    title: "Technique",
+    text: "Installations, entretien des terrains, tonte, traçage et plannings des interventions.",
+    link: "Voir les installations",
+  },
+  {
+    number: "03",
+    title: "Animations",
+    text: "Les rendez-vous qui font vivre le club, les inscriptions et les besoins en bénévoles.",
+    link: "Voir les événements",
+  },
+  {
+    number: "04",
+    title: "Buvette",
+    text: "Club House, permanences et organisation des bénévoles les jours de match et d’événement.",
+    link: "Découvrir le Club House",
+  },
+];
+
+const teams = ["École de football", "Jeunes", "Seniors", "Vétérans"];
+
+export default function Home() {
+  return (
+    <main>
+      <div className="preview-notice">
+        <span>Maquette du futur site officiel</span>
+        <span>Contenus et dates à confirmer</span>
+      </div>
+
+      <header className="site-header">
+        <a className="brand" href="#accueil" aria-label="Accueil du FC Ensisheim">
+          <img src="/logo-fce.png" alt="Blason du Football Club d’Ensisheim" />
+          <span><strong>FC Ensisheim</strong><small>Depuis 1930</small></span>
+        </a>
+
+        <nav className="desktop-nav" aria-label="Navigation principale">
+          <a href="#club">Le club</a>
+          <a href="#equipes">Équipes</a>
+          <a href="#actualites">Actualités</a>
+          <a href="#poles">Nos pôles</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a className="header-cta" href="#agenda">Voir l’agenda</a>
+
+        <details className="mobile-menu">
+          <summary aria-label="Ouvrir le menu">Menu</summary>
+          <nav aria-label="Navigation mobile">
+            <a href="#club">Le club</a>
+            <a href="#equipes">Équipes</a>
+            <a href="#actualites">Actualités</a>
+            <a href="#poles">Nos pôles</a>
+            <a href="#agenda">Agenda</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </details>
+      </header>
+
+      <section className="hero" id="accueil">
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-watermark" aria-hidden="true">FCE</div>
+        <div className="hero-copy">
+          <p className="eyebrow"><span /> Football Club d’Ensisheim</p>
+          <h1>Un club.<br /><em>Une ville.</em><br />Une passion.</h1>
+          <p className="hero-intro">
+            Depuis 1930, le FCE rassemble toutes les générations autour du football,
+            de l’engagement et de la convivialité.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-light" href="#club">Découvrir le club <span>→</span></a>
+            <a className="text-link" href="#equipes">Nos équipes <span>↗</span></a>
+          </div>
+        </div>
+
+        <div className="hero-badge"><strong>350</strong><span>licenciés environ</span></div>
+
+        <div className="hero-scoreboard" aria-label="Prochain rendez-vous">
+          <p>Prochain rendez-vous</p>
+          <strong>Le calendrier arrive bientôt</strong>
+          <span>Les matchs et événements seront publiés ici.</span>
+        </div>
+      </section>
+
+      <section className="club-intro section-shell" id="club">
+        <div>
+          <p className="section-kicker">Le club</p>
+          <h2>Plus qu’un maillot,<br />une histoire collective.</h2>
+        </div>
+        <div className="intro-copy">
+          <p>
+            Le Football Club d’Ensisheim est un club amateur ancré dans sa ville.
+            Joueurs, éducateurs, dirigeants, familles et bénévoles font vivre le FCE au quotidien.
+          </p>
+          <a className="arrow-link" href="#actualites">Notre histoire <span>→</span></a>
+        </div>
+        <div className="stat-card">
+          <span className="stat-year">1930</span>
+          <span className="stat-caption">Année de fondation</span>
+          <div className="stat-stripes" aria-hidden="true"><i /><i /><i /></div>
+        </div>
+      </section>
+
+      <section className="teams-section" id="equipes">
+        <div className="section-shell teams-heading">
+          <div>
+            <p className="section-kicker light">Sur tous les terrains</p>
+            <h2>Nos équipes</h2>
+          </div>
+          <p>Retrouvez bientôt les catégories, les encadrants, les calendriers et les résultats de la saison.</p>
+        </div>
+        <div className="section-shell team-list">
+          {teams.map((team, index) => (
+            <a href="#contact" className="team-row" key={team}>
+              <span>0{index + 1}</span><strong>{team}</strong><em>Informations à venir</em><b aria-hidden="true">↗</b>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="poles-section section-shell" id="poles">
+        <div className="section-heading-row">
+          <div>
+            <p className="section-kicker">La force du collectif</p>
+            <h2>Quatre pôles.<br />Un seul club.</h2>
+          </div>
+          <p>Une organisation claire pour mieux partager les informations et faire avancer chaque projet du FCE.</p>
+        </div>
+
+        <div className="pole-grid">
+          {poles.map((pole) => (
+            <article className="pole-card" key={pole.number}>
+              <div className="pole-number">{pole.number}</div>
+              <h3>{pole.title}</h3>
+              <p>{pole.text}</p>
+              <a href="#contact">{pole.link} <span>→</span></a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="news-section" id="actualites">
+        <div className="section-shell">
+          <div className="section-heading-row news-heading">
+            <div><p className="section-kicker light">Au cœur du FCE</p><h2>Actualités</h2></div>
+            <a className="arrow-link light-link" href="#contact">Toutes les actualités <span>→</span></a>
+          </div>
+
+          <div className="news-grid">
+            <article className="featured-news">
+              <div className="news-visual pitch-pattern"><span>FCE</span></div>
+              <div className="news-content">
+                <p className="news-meta">Vie du club · À venir</p>
+                <h3>Le nouveau site du FCE prend forme</h3>
+                <p>Un futur espace pour suivre le club, ses équipes, ses événements et tous ceux qui le font vivre.</p>
+                <a href="#contact" aria-label="Lire l’actualité sur le nouveau site">Lire l’article →</a>
+              </div>
+            </article>
+
+            <article className="small-news">
+              <div className="small-news-date"><strong>—</strong><span>À venir</span></div>
+              <div><p className="news-meta">Sportif</p><h3>Les calendriers de la saison seront publiés prochainement</h3></div>
+              <a href="#equipes" aria-label="Voir les équipes">↗</a>
+            </article>
+
+            <article className="small-news">
+              <div className="small-news-date"><strong>—</strong><span>À venir</span></div>
+              <div><p className="news-meta">Animations</p><h3>Retrouvez bientôt les prochains rendez-vous du club</h3></div>
+              <a href="#agenda" aria-label="Voir l’agenda">↗</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="agenda-section section-shell" id="agenda">
+        <div className="agenda-card">
+          <div><p className="section-kicker light">Agenda du club</p><h2>Le prochain<br />rendez-vous.</h2></div>
+          <div className="agenda-message">
+            <span className="agenda-icon" aria-hidden="true">+</span>
+            <p>Les prochaines rencontres, permanences et animations apparaîtront ici dès validation du calendrier.</p>
+            <a href="https://www.animations-fce.online" target="_blank" rel="noreferrer">Application du marché aux puces <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section className="join-section" id="contact">
+        <div className="join-mark" aria-hidden="true">1930</div>
+        <div className="section-shell join-content">
+          <p className="section-kicker light">Rejoignez l’aventure</p>
+          <h2>Envie de faire partie<br />du collectif ?</h2>
+          <p>Joueur, éducateur, dirigeant, bénévole ou partenaire : il y a toujours une place pour vous au FCE.</p>
+          <span className="button button-light">Coordonnées à venir <span>→</span></span>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="footer-main section-shell">
+          <div className="footer-brand">
+            <img src="/logo-fce.png" alt="" />
+            <div><strong>Football Club<br />d’Ensisheim</strong><span>Depuis 1930</span></div>
+          </div>
+          <div className="footer-links">
+            <div><h3>Le site</h3><a href="#club">Le club</a><a href="#equipes">Équipes</a><a href="#actualites">Actualités</a><a href="#agenda">Agenda</a></div>
+            <div><h3>Les pôles</h3><a href="#poles">Sportif</a><a href="#poles">Technique</a><a href="#poles">Animations</a><a href="#poles">Buvette</a></div>
+            <div><h3>Nous suivre</h3><a href="#contact">Facebook</a><a href="#contact">Instagram</a><span>Contact — à venir</span></div>
+          </div>
+        </div>
+        <div className="footer-bottom section-shell">
+          <span>© 2026 Football Club d’Ensisheim</span>
+          <span>Maquette — mentions légales et confidentialité à compléter</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
