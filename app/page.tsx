@@ -67,9 +67,17 @@ export default function Home() {
       <section className="hero" id="accueil">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-watermark" aria-hidden="true">FCE</div>
+        <div className="hero-slashes" aria-hidden="true"><i /><i /><i /></div>
+        <div className="hero-crest">
+          <img src="/logo-fce.png" alt="Blason du Football Club d’Ensisheim" />
+          <div className="hero-crest-meta">
+            <span>Fondé en</span><strong>1930</strong><span>Environ 350 licenciés</span>
+          </div>
+        </div>
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Football Club d’Ensisheim</p>
-          <h1>Un club.<br /><em>Une ville.</em><br />Une passion.</h1>
+          <p className="eyebrow"><span /> Le football au cœur de la ville</p>
+          <h1><span>Football Club</span><br /><em>D’Ensisheim</em></h1>
+          <p className="hero-motto">Un club. Une ville. Une passion.</p>
           <p className="hero-intro">
             Depuis 1930, le FCE rassemble toutes les générations autour du football,
             de l’engagement et de la convivialité.
@@ -79,8 +87,6 @@ export default function Home() {
             <a className="text-link" href="#equipes">Nos équipes <span>↗</span></a>
           </div>
         </div>
-
-        <div className="hero-badge"><strong>350</strong><span>licenciés environ</span></div>
 
         <div className="hero-scoreboard" aria-label="Prochain rendez-vous">
           <p>Prochain rendez-vous</p>
