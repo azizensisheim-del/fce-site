@@ -449,3 +449,346 @@ body { background: var(--ink); color: var(--paper); }
   .agenda-message { padding: 36px 28px; }
   .join-content h2 { margin-bottom: 34px; }
 }
+
+/* Direction design FCE — composition plus éditoriale et plus aérée */
+:root {
+  --shell: 1160px;
+  --section-space: clamp(108px, 11vw, 168px);
+}
+
+.section-shell,
+.club-intro,
+.poles-section,
+.agenda-section {
+  width: min(var(--shell), calc(100% - 80px));
+}
+
+.site-header {
+  height: 104px;
+}
+
+.desktop-nav {
+  gap: 34px;
+}
+
+.hero {
+  min-height: 820px;
+  padding-top: 120px;
+  padding-bottom: 70px;
+  column-gap: clamp(70px, 9vw, 130px);
+}
+
+.hero-copy {
+  padding-block: 24px;
+}
+
+.hero h1 {
+  max-width: 7.6ch;
+  font-size: clamp(68px, 8vw, 118px);
+  line-height: 1.02;
+}
+
+.hero-motto {
+  margin-top: 48px;
+}
+
+.hero-intro {
+  margin-top: 44px;
+  max-width: 50ch;
+}
+
+.hero-scoreboard {
+  margin-top: 10px;
+  padding-top: 32px;
+  gap: 48px;
+}
+
+.club-intro,
+.teams-section,
+.poles-section,
+.news-section,
+.agenda-section,
+.join-section {
+  padding-block: var(--section-space);
+}
+
+.section-kicker {
+  margin-bottom: 38px;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 34px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: currentColor;
+}
+
+.club-intro h2,
+.section-heading-row h2,
+.teams-heading h2,
+.news-heading h2,
+.agenda-card h2,
+.join-content h2 {
+  max-width: 13ch;
+  font-size: clamp(44px, 5vw, 68px);
+  line-height: 1.12;
+}
+
+.club-intro {
+  grid-template-columns: minmax(0, 1.25fr) minmax(290px, .55fr);
+  row-gap: 92px;
+  column-gap: clamp(70px, 10vw, 130px);
+}
+
+.club-intro > div:first-child {
+  max-width: 900px;
+}
+
+.intro-copy > p,
+.section-heading-row > p,
+.teams-heading > p {
+  max-width: 52ch;
+  font-size: 17px;
+  line-height: 2.05;
+}
+
+.stat-card {
+  min-height: 310px;
+  padding: 42px;
+}
+
+.teams-heading,
+.section-heading-row {
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, .62fr);
+  gap: clamp(70px, 10vw, 130px);
+  margin-bottom: 105px;
+}
+
+.team-row {
+  min-height: 150px;
+  grid-template-columns: 74px 1fr 210px 36px;
+}
+
+.team-row strong {
+  font-size: clamp(31px, 3.6vw, 47px);
+  line-height: 1.25;
+}
+
+.pole-grid {
+  gap: 22px;
+  border: 0;
+}
+
+.pole-card {
+  min-height: 500px;
+  padding: 46px 34px 40px;
+  position: relative;
+  border: 1px solid var(--line);
+  background: #0d0e0e;
+  transform: none;
+}
+
+.pole-card::before {
+  content: "";
+  width: 42px;
+  height: 4px;
+  position: absolute;
+  top: -1px;
+  left: 34px;
+  background: var(--red);
+}
+
+.pole-card:hover {
+  transform: translateY(-6px);
+}
+
+.pole-number {
+  margin-bottom: 88px;
+}
+
+.pole-card h3 {
+  margin-bottom: 30px;
+  font-size: clamp(31px, 2.8vw, 40px);
+}
+
+.pole-card p {
+  margin-bottom: 56px;
+  line-height: 2;
+}
+
+.news-grid {
+  grid-template-columns: minmax(0, 1.22fr) minmax(320px, .78fr);
+  column-gap: 64px;
+}
+
+.featured-news {
+  align-self: start;
+}
+
+.news-visual {
+  height: 380px;
+}
+
+.news-content {
+  padding: 58px;
+}
+
+.news-content h3 {
+  max-width: 14ch;
+  font-size: clamp(35px, 4vw, 48px);
+  line-height: 1.22;
+}
+
+.small-news {
+  min-height: 330px;
+  padding-block: 54px;
+}
+
+.agenda-card {
+  min-height: 520px;
+  padding: clamp(48px, 6vw, 78px);
+  gap: clamp(70px, 10vw, 130px);
+}
+
+.agenda-message {
+  padding: 58px;
+}
+
+.join-content h2 {
+  max-width: 12ch;
+}
+
+.join-content > p:not(.section-kicker) {
+  max-width: 52ch;
+}
+
+.footer-main {
+  padding-block: 112px;
+}
+
+@media (max-width: 980px) {
+  .section-shell,
+  .club-intro,
+  .poles-section,
+  .agenda-section {
+    width: min(var(--shell), calc(100% - 48px));
+  }
+
+  .hero {
+    min-height: auto;
+    row-gap: 66px;
+  }
+
+  .hero h1 {
+    max-width: none;
+  }
+
+  .club-intro,
+  .teams-heading,
+  .section-heading-row {
+    column-gap: 58px;
+  }
+
+  .pole-grid {
+    gap: 20px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 54px;
+  }
+
+  .small-news {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --section-space: 94px;
+  }
+
+  .section-shell,
+  .club-intro,
+  .poles-section,
+  .agenda-section {
+    width: min(var(--shell), calc(100% - 32px));
+  }
+
+  .site-header {
+    height: 82px;
+  }
+
+  .hero {
+    padding-top: 58px;
+    padding-bottom: 52px;
+    row-gap: 56px;
+  }
+
+  .hero-copy {
+    padding-block: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 17vw, 76px);
+    line-height: 1.08;
+  }
+
+  .hero-scoreboard {
+    gap: 18px;
+  }
+
+  .club-intro,
+  .teams-heading,
+  .section-heading-row {
+    grid-template-columns: 1fr;
+    row-gap: 54px;
+  }
+
+  .club-intro h2,
+  .section-heading-row h2,
+  .teams-heading h2,
+  .news-heading h2,
+  .agenda-card h2,
+  .join-content h2 {
+    max-width: 12ch;
+    font-size: clamp(38px, 11.5vw, 52px);
+    line-height: 1.16;
+  }
+
+  .team-row {
+    min-height: 120px;
+    grid-template-columns: 34px 1fr 28px;
+  }
+
+  .pole-card {
+    min-height: 410px;
+    padding: 42px 30px 34px;
+  }
+
+  .pole-card::before {
+    left: 30px;
+  }
+
+  .pole-number {
+    margin-bottom: 68px;
+  }
+
+  .news-visual {
+    height: 250px;
+  }
+
+  .news-content,
+  .agenda-message {
+    padding: 36px 28px;
+  }
+
+  .small-news {
+    min-height: 260px;
+  }
+
+  .agenda-card {
+    padding: 34px 26px;
+  }
+}
