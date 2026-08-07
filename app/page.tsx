@@ -98,7 +98,7 @@ export default function Home() {
       <section className="club-intro section-shell" id="club">
         <div>
           <p className="section-kicker">Le club</p>
-          <h2>Plus qu’un maillot,<br />une histoire collective.</h2>
+          <h2>Plus qu’un maillot, une histoire collective.</h2>
         </div>
         <div className="intro-copy">
           <p>
@@ -135,7 +135,7 @@ export default function Home() {
         <div className="section-heading-row">
           <div>
             <p className="section-kicker">La force du collectif</p>
-            <h2>Quatre pôles.<br />Un seul club.</h2>
+            <h2>Quatre pôles. Un seul club.</h2>
           </div>
           <p>Une organisation claire pour mieux partager les informations et faire avancer chaque projet du FCE.</p>
         </div>
@@ -187,7 +187,7 @@ export default function Home() {
 
       <section className="agenda-section section-shell" id="agenda">
         <div className="agenda-card">
-          <div><p className="section-kicker light">Agenda du club</p><h2>Le prochain<br />rendez-vous.</h2></div>
+          <div><p className="section-kicker light">Agenda du club</p><h2>Le prochain rendez-vous.</h2></div>
           <div className="agenda-message">
             <span className="agenda-icon" aria-hidden="true">+</span>
             <p>Les prochaines rencontres, permanences et animations apparaîtront ici dès validation du calendrier.</p>
@@ -200,7 +200,7 @@ export default function Home() {
         <div className="join-mark" aria-hidden="true">1930</div>
         <div className="section-shell join-content">
           <p className="section-kicker light">Rejoignez l’aventure</p>
-          <h2>Envie de faire partie<br />du collectif ?</h2>
+          <h2>Envie de faire partie du collectif ?</h2>
           <p>Joueur, éducateur, dirigeant, bénévole ou partenaire : il y a toujours une place pour vous au FCE.</p>
           <span className="button button-light">Coordonnées à venir <span>→</span></span>
         </div>
