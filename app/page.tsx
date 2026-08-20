@@ -1,3 +1,5 @@
+import TeamCalendar from "./TeamCalendar";
+
 const poles = [
   {
     number: "01",
@@ -110,6 +112,7 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="Navigation principale">
           <a href="#club">Le club</a>
           <a href="#equipes">Équipes</a>
+          <a href="#calendrier">Calendriers</a>
           <a href="#actualites">Actualités</a>
           <a href="#poles">Nos pôles</a>
           <a href="#contact">Contact</a>
@@ -122,6 +125,7 @@ export default function Home() {
           <nav aria-label="Navigation mobile">
             <a href="#club">Le club</a>
             <a href="#equipes">Équipes</a>
+            <a href="#calendrier">Calendriers</a>
             <a href="#actualites">Actualités</a>
             <a href="#poles">Nos pôles</a>
             <a href="#buvette">Buvette</a>
@@ -156,9 +160,9 @@ export default function Home() {
         </div>
 
         <div className="hero-scoreboard" aria-label="Prochain rendez-vous">
-          <p>Prochain rendez-vous</p>
-          <strong>Le calendrier arrive bientôt</strong>
-          <span>Les matchs et événements seront publiés ici.</span>
+          <p>Saison 2026-2027</p>
+          <strong>Les calendriers sont en ligne</strong>
+          <span>Consultez les rencontres des huit équipes engagées confirmées.</span>
         </div>
       </section>
 
@@ -216,6 +220,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <TeamCalendar />
 
       <section className="poles-section section-shell" id="poles">
         <div className="section-heading-row">
@@ -311,8 +317,8 @@ export default function Home() {
 
             <article className="small-news">
               <div className="small-news-date"><strong>—</strong><span>À venir</span></div>
-              <div><p className="news-meta">Sportif</p><h3>Les calendriers de la saison seront publiés prochainement</h3></div>
-              <a href="#equipes" aria-label="Voir les équipes">↗</a>
+              <div><p className="news-meta">Sportif</p><h3>Les calendriers 2026-2027 sont disponibles pour huit équipes</h3></div>
+              <a href="#calendrier" aria-label="Voir les calendriers">↗</a>
             </article>
 
             <article className="small-news">
@@ -329,8 +335,8 @@ export default function Home() {
           <div><p className="section-kicker light">Agenda du club</p><h2>Le prochain rendez-vous.</h2></div>
           <div className="agenda-message">
             <span className="agenda-icon" aria-hidden="true">+</span>
-            <p>Les prochaines rencontres, permanences et animations apparaîtront ici dès validation du calendrier.</p>
-            <a href="https://www.animations-fce.online" target="_blank" rel="noreferrer">Application du marché aux puces <span>↗</span></a>
+            <p>Les rencontres 2026-2027 des équipes engagées confirmées sont désormais consultables sur cette maquette.</p>
+            <a href="#calendrier">Voir les calendriers des équipes <span>→</span></a>
           </div>
         </div>
       </section>
@@ -352,7 +358,7 @@ export default function Home() {
             <div><strong>Football Club<br />d’Ensisheim</strong><span>Depuis 1930</span></div>
           </div>
           <div className="footer-links">
-            <div><h3>Le site</h3><a href="#club">Le club</a><a href="#equipes">Équipes</a><a href="#actualites">Actualités</a><a href="#agenda">Agenda</a></div>
+            <div><h3>Le site</h3><a href="#club">Le club</a><a href="#equipes">Équipes</a><a href="#calendrier">Calendriers</a><a href="#actualites">Actualités</a><a href="#agenda">Agenda</a></div>
             <div><h3>Les pôles</h3><a href="#poles">Sportif</a><a href="#poles">Technique</a><a href="#poles">Animations</a><a href="#buvette">Buvette</a></div>
             <div><h3>Nous suivre</h3><a href="#contact">Facebook</a><a href="#contact">Instagram</a><span>Contact — à venir</span></div>
           </div>

@@ -667,6 +667,282 @@ body { background: var(--ink); color: var(--paper); }
   padding-block: 112px;
 }
 
+/* Calendriers 2026-2027 */
+.calendar-section {
+  padding-block: var(--section-space);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.calendar-heading {
+  margin-bottom: 78px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, .62fr);
+  gap: clamp(70px, 10vw, 130px);
+  align-items: end;
+}
+
+.calendar-heading h2 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(44px, 5vw, 68px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.calendar-intro p {
+  max-width: 52ch;
+  margin: 0 0 22px;
+  color: #5d5851;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.calendar-intro strong {
+  color: var(--red-dark);
+  font-size: 10px;
+  letter-spacing: .13em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.calendar-filters {
+  margin-bottom: 28px;
+  padding-bottom: 8px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.calendar-filters button {
+  flex: 0 0 auto;
+  padding: 14px 17px;
+  border: 1px solid rgba(8, 9, 9, .22);
+  background: transparent;
+  color: #5d5851;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background .2s, color .2s, border-color .2s;
+}
+
+.calendar-filters button:hover,
+.calendar-filters button:focus-visible,
+.calendar-filters button.active {
+  border-color: var(--red);
+  background: var(--red);
+  color: white;
+}
+
+.calendar-panel {
+  border-top: 5px solid var(--red);
+  background: #fffdf8;
+  box-shadow: 0 24px 70px rgba(8, 9, 9, .09);
+}
+
+.calendar-team-header {
+  min-height: 190px;
+  padding: 42px 46px;
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  align-items: center;
+  border-bottom: 1px solid rgba(8, 9, 9, .14);
+}
+
+.calendar-team-header > div:first-child > span {
+  color: var(--red-dark);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.calendar-team-header h3 {
+  margin: 11px 0 9px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.calendar-team-header p {
+  margin: 0;
+  color: #666057;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.calendar-counts {
+  display: flex;
+  gap: 34px;
+}
+
+.calendar-counts span {
+  min-width: 82px;
+  color: #6c655c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.calendar-counts strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+}
+
+.calendar-timeline {
+  padding: 18px 46px 30px;
+}
+
+.calendar-month h4 {
+  margin: 0;
+  padding: 40px 0 18px;
+  color: var(--red-dark);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.calendar-match-list {
+  border-top: 1px solid rgba(8, 9, 9, .18);
+}
+
+.calendar-match {
+  min-height: 114px;
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 140px minmax(250px, 1fr) minmax(220px, .85fr);
+  gap: 34px;
+  align-items: center;
+  border-bottom: 1px solid rgba(8, 9, 9, .14);
+  position: relative;
+}
+
+.calendar-match.coupe::before {
+  content: "";
+  width: 4px;
+  position: absolute;
+  inset: 18px auto 18px -18px;
+  background: var(--red);
+}
+
+.match-date {
+  display: grid;
+  gap: 7px;
+}
+
+.match-date strong {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.match-date span {
+  color: #6a645b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.match-opponent {
+  display: grid;
+  gap: 10px;
+}
+
+.match-opponent strong {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.venue-badge,
+.cup-badge {
+  width: fit-content;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.venue-badge {
+  padding: 6px 8px;
+  border: 1px solid rgba(8, 9, 9, .22);
+  color: #655f57;
+}
+
+.venue-badge.home {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: white;
+}
+
+.match-competition {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #6c655c;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.cup-badge {
+  flex: 0 0 auto;
+  padding: 7px 9px;
+  background: var(--red);
+  color: white;
+}
+
+.calendar-source {
+  padding: 32px 46px;
+  display: flex;
+  justify-content: space-between;
+  gap: 38px;
+  align-items: center;
+  border-top: 1px solid rgba(8, 9, 9, .14);
+  background: #eee7da;
+}
+
+.calendar-source p {
+  max-width: 62ch;
+  margin: 0;
+  color: #655f57;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.calendar-source a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 18px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
 /* Équipes — saison 2026-2027 */
 .teams-season {
   padding-left: 25px;
@@ -1006,6 +1282,15 @@ body { background: var(--ink); color: var(--paper); }
     gap: 11px;
   }
 
+  .calendar-heading {
+    gap: 58px;
+  }
+
+  .calendar-match {
+    grid-template-columns: 110px minmax(200px, 1fr) minmax(180px, .75fr);
+    gap: 24px;
+  }
+
   .planning-head,
   .planning-row {
     grid-template-columns: .9fr 1.25fr 1fr .8fr;
@@ -1143,6 +1428,84 @@ body { background: var(--ink); color: var(--paper); }
 
   .team-entry strong {
     font-size: 22px;
+  }
+
+  .calendar-heading {
+    margin-bottom: 58px;
+    grid-template-columns: 1fr;
+    gap: 44px;
+    align-items: start;
+  }
+
+  .calendar-heading h2 {
+    font-size: clamp(38px, 11.5vw, 52px);
+    line-height: 1.16;
+  }
+
+  .calendar-filters {
+    width: calc(100% + 16px);
+    margin-right: -16px;
+  }
+
+  .calendar-team-header {
+    min-height: 0;
+    padding: 34px 26px;
+    display: grid;
+    gap: 30px;
+  }
+
+  .calendar-team-header h3 {
+    font-size: 41px;
+  }
+
+  .calendar-counts {
+    padding-top: 24px;
+    gap: 28px;
+    border-top: 1px solid rgba(8, 9, 9, .14);
+  }
+
+  .calendar-timeline {
+    padding: 12px 26px 24px;
+  }
+
+  .calendar-month h4 {
+    padding-top: 34px;
+  }
+
+  .calendar-match {
+    min-height: 0;
+    padding: 25px 0;
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .calendar-match.coupe::before {
+    left: -12px;
+  }
+
+  .match-date strong {
+    font-size: 22px;
+  }
+
+  .match-opponent strong {
+    font-size: 21px;
+  }
+
+  .match-competition {
+    grid-column: 2;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .calendar-source {
+    padding: 28px 26px;
+    display: grid;
+    gap: 24px;
+  }
+
+  .calendar-source a {
+    width: fit-content;
   }
 
   .buvette-heading {
