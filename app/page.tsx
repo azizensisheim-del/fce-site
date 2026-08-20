@@ -27,6 +27,33 @@ const poles = [
 
 const teams = ["École de football", "Jeunes", "Seniors", "Vétérans"];
 
+const buvettePlanning = [
+  {
+    day: "Sam. 12 sept.",
+    time: "13 h 30 — 18 h",
+    event: "Match Seniors",
+    type: "Match",
+    volunteers: "Marie · Thomas",
+    need: 0,
+  },
+  {
+    day: "Mer. 16 sept.",
+    time: "16 h — 19 h",
+    event: "Entraînement des jeunes",
+    type: "Entraînement",
+    volunteers: "Sophie",
+    need: 1,
+  },
+  {
+    day: "Sam. 19 sept.",
+    time: "9 h — 18 h",
+    event: "Journée portes ouvertes",
+    type: "Animation",
+    volunteers: "Équipe à constituer",
+    need: 4,
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -58,6 +85,7 @@ export default function Home() {
             <a href="#equipes">Équipes</a>
             <a href="#actualites">Actualités</a>
             <a href="#poles">Nos pôles</a>
+            <a href="#buvette">Buvette</a>
             <a href="#agenda">Agenda</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -146,9 +174,62 @@ export default function Home() {
               <div className="pole-number">{pole.number}</div>
               <h3>{pole.title}</h3>
               <p>{pole.text}</p>
-              <a href="#contact">{pole.link} <span>→</span></a>
+              <a href={pole.title === "Buvette" ? "#buvette" : "#contact"}>{pole.link} <span>→</span></a>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="buvette-section" id="buvette">
+        <div className="section-shell">
+          <div className="buvette-heading">
+            <div>
+              <p className="section-kicker">Pôle Buvette</p>
+              <h2>Le planning des permanences.</h2>
+            </div>
+            <div className="buvette-intro">
+              <p>Une vue simple pour savoir qui ouvre le Club House, à quelle heure et pour quel rendez-vous.</p>
+              <span>Exemple de fonctionnement · données fictives</span>
+            </div>
+          </div>
+
+          <div className="planning-board" aria-label="Exemple de planning des bénévoles de la buvette">
+            <div className="planning-head" aria-hidden="true">
+              <span>Jour &amp; horaire</span>
+              <span>Événement</span>
+              <span>Bénévoles attribués</span>
+              <span>Besoin</span>
+            </div>
+
+            {buvettePlanning.map((slot) => (
+              <article className="planning-row" key={`${slot.day}-${slot.event}`}>
+                <div className="planning-date">
+                  <strong>{slot.day}</strong>
+                  <span>{slot.time}</span>
+                </div>
+                <div className="planning-event">
+                  <span className="event-type">{slot.type}</span>
+                  <strong>{slot.event}</strong>
+                </div>
+                <div className="planning-volunteers">
+                  <span className="mobile-label">Bénévoles attribués</span>
+                  <strong>{slot.volunteers}</strong>
+                </div>
+                <div className="planning-need">
+                  {slot.need === 0 ? (
+                    <span className="need-badge complete">Équipe complète</span>
+                  ) : (
+                    <span className="need-badge open">{slot.need} bénévole{slot.need > 1 ? "s" : ""} recherché{slot.need > 1 ? "s" : ""}</span>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="planning-note">
+            <span aria-hidden="true">+</span>
+            <p>Dans une prochaine étape, le responsable Buvette pourra ajouter une permanence et affecter les bénévoles depuis son espace privé.</p>
+          </div>
         </div>
       </section>
 
@@ -214,7 +295,7 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><h3>Le site</h3><a href="#club">Le club</a><a href="#equipes">Équipes</a><a href="#actualites">Actualités</a><a href="#agenda">Agenda</a></div>
-            <div><h3>Les pôles</h3><a href="#poles">Sportif</a><a href="#poles">Technique</a><a href="#poles">Animations</a><a href="#poles">Buvette</a></div>
+            <div><h3>Les pôles</h3><a href="#poles">Sportif</a><a href="#poles">Technique</a><a href="#poles">Animations</a><a href="#buvette">Buvette</a></div>
             <div><h3>Nous suivre</h3><a href="#contact">Facebook</a><a href="#contact">Instagram</a><span>Contact — à venir</span></div>
           </div>
         </div>
