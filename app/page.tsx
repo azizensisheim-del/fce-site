@@ -25,7 +25,46 @@ const poles = [
   },
 ];
 
-const teams = ["École de football", "Jeunes", "Seniors", "Vétérans"];
+const teamGroups = [
+  {
+    title: "Seniors masculins",
+    provisional: false,
+    teams: [
+      { name: "Seniors 1", competition: "District 1 Alsace · Poule E" },
+      { name: "Seniors 2", competition: "District 6 Alsace · Poule G" },
+      { name: "Seniors 3", competition: "District 8 Alsace · Poule O" },
+      { name: "Seniors 4", competition: "District 8 Alsace · Poule P" },
+    ],
+  },
+  {
+    title: "Féminines",
+    provisional: true,
+    teams: [
+      { name: "Seniors Féminines 1", competition: "Football à 8 · Division et poule à confirmer" },
+      { name: "U15 Féminines 1", competition: "Football à 8 · Division et poule à confirmer" },
+    ],
+  },
+  {
+    title: "Jeunes",
+    provisional: false,
+    teams: [
+      { name: "U18", competition: "U18 D1 Alsace · Poule B" },
+      { name: "U16", competition: "U16 D1 Alsace · Poule E" },
+      { name: "U15 équipe 1", competition: "U15 D1 Alsace · Poule B" },
+      { name: "U15 équipe 2", competition: "U15 D3 Alsace · Poule J" },
+      { name: "U13 équipe 1", competition: "U13 D2 Alsace · Poule I" },
+    ],
+  },
+  {
+    title: "Foot animation",
+    provisional: true,
+    teams: [
+      { name: "U11 · équipes 1, 2 et 3", competition: "Niveaux et poules 2026-2027 à confirmer" },
+      { name: "U9 · équipes 1, 2 et 3", competition: "Plateaux 2026-2027 à confirmer" },
+      { name: "U7 · équipes 1 et 2", competition: "Plateaux 2026-2027 à confirmer" },
+    ],
+  },
+];
 
 const buvettePlanning = [
   {
@@ -148,13 +187,32 @@ export default function Home() {
             <p className="section-kicker light">Sur tous les terrains</p>
             <h2>Nos équipes</h2>
           </div>
-          <p>Retrouvez bientôt les catégories, les encadrants, les calendriers et les résultats de la saison.</p>
+          <div className="teams-season">
+            <strong>Saison 2026-2027</strong>
+            <span>Mise à jour août 2026</span>
+          </div>
         </div>
-        <div className="section-shell team-list">
-          {teams.map((team, index) => (
-            <a href="#contact" className="team-row" key={team}>
-              <span>0{index + 1}</span><strong>{team}</strong><em>Informations à venir</em><b aria-hidden="true">↗</b>
-            </a>
+
+        <div className="section-shell team-groups">
+          {teamGroups.map((group, groupIndex) => (
+            <section className="team-group" key={group.title} aria-labelledby={`team-group-${groupIndex}`}>
+              <header className="team-group-header">
+                <div>
+                  <span>0{groupIndex + 1}</span>
+                  <h3 id={`team-group-${groupIndex}`}>{group.title}</h3>
+                </div>
+                {group.provisional && <span className="provisional-badge">Provisoire</span>}
+              </header>
+
+              <div className="team-group-list">
+                {group.teams.map((team) => (
+                  <article className="team-entry" key={team.name}>
+                    <strong>{team.name}</strong>
+                    <span>{team.competition}</span>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </section>

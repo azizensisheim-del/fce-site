@@ -667,6 +667,123 @@ body { background: var(--ink); color: var(--paper); }
   padding-block: 112px;
 }
 
+/* Équipes — saison 2026-2027 */
+.teams-season {
+  padding-left: 25px;
+  display: grid;
+  gap: 10px;
+  border-left: 3px solid var(--red);
+}
+
+.teams-season strong {
+  color: var(--paper);
+  font-size: 16px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.teams-season span {
+  color: rgba(242, 234, 219, .5);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.team-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+  align-items: start;
+}
+
+.team-group {
+  border: 1px solid rgba(242, 234, 219, .18);
+  background: #080909;
+}
+
+.team-group-header {
+  min-height: 116px;
+  padding: 30px 34px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  border-bottom: 1px solid rgba(242, 234, 219, .18);
+}
+
+.team-group-header > div {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.team-group-header > div > span {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.team-group-header h3 {
+  margin: 0;
+  color: var(--paper);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(28px, 3vw, 39px);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.provisional-badge {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border: 1px solid rgba(242, 234, 219, .28);
+  color: rgba(242, 234, 219, .62);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.team-group-list {
+  padding-inline: 34px;
+}
+
+.team-entry {
+  min-height: 118px;
+  padding-block: 27px;
+  display: grid;
+  grid-template-columns: minmax(150px, .72fr) minmax(190px, 1fr);
+  gap: 28px;
+  align-items: center;
+  border-bottom: 1px solid rgba(242, 234, 219, .14);
+}
+
+.team-entry:last-child {
+  border-bottom: 0;
+}
+
+.team-entry strong {
+  color: var(--paper);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .015em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.team-entry span {
+  color: rgba(242, 234, 219, .55);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
 /* Pôle Buvette — planning des permanences */
 .buvette-section {
   padding-block: var(--section-space);
@@ -872,6 +989,23 @@ body { background: var(--ink); color: var(--paper); }
     gap: 58px;
   }
 
+  .team-groups {
+    gap: 24px;
+  }
+
+  .team-group-header {
+    padding-inline: 27px;
+  }
+
+  .team-group-list {
+    padding-inline: 27px;
+  }
+
+  .team-entry {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
   .planning-head,
   .planning-row {
     grid-template-columns: .9fr 1.25fr 1fr .8fr;
@@ -965,6 +1099,50 @@ body { background: var(--ink); color: var(--paper); }
 
   .small-news {
     min-height: 260px;
+  }
+
+  .teams-season {
+    padding-left: 20px;
+  }
+
+  .team-groups {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .team-group-header {
+    min-height: 104px;
+    padding: 26px 22px;
+    align-items: flex-start;
+  }
+
+  .team-group-header > div {
+    gap: 13px;
+  }
+
+  .team-group-header h3 {
+    font-size: 29px;
+  }
+
+  .provisional-badge {
+    margin-top: 2px;
+    padding: 7px 8px;
+    font-size: 8px;
+  }
+
+  .team-group-list {
+    padding-inline: 22px;
+  }
+
+  .team-entry {
+    min-height: 0;
+    padding-block: 25px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .team-entry strong {
+    font-size: 22px;
   }
 
   .buvette-heading {
