@@ -8,6 +8,14 @@ const monthNames = [
   "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre",
 ];
 
+const seniorsOne = {
+  slug: "seniors-1",
+  label: "Seniors 1",
+  division: "District 1 Alsace · Poule E",
+};
+
+const calendarTabs = [seniorsOne, ...teamCalendars];
+
 function getMonth(date: string) {
   const [, month, year] = date.split("/");
   return {
@@ -17,10 +25,12 @@ function getMonth(date: string) {
 }
 
 export default function TeamCalendar() {
-  const [activeSlug, setActiveSlug] = useState(teamCalendars[0].slug);
-  const activeTeam = teamCalendars.find((team) => team.slug === activeSlug) ?? teamCalendars[0];
+  const [activeSlug, setActiveSlug] = useState(seniorsOne.slug);
+  const activeTeam = teamCalendars.find((team) => team.slug === activeSlug);
+  const activeTab = calendarTabs.find((team) => team.slug === activeSlug) ?? seniorsOne;
 
   const months = useMemo(() => {
+    if (!activeTeam) return [];
     return activeTeam.matches.reduce<Array<{ key: string; label: string; matches: typeof activeTeam.matches }>>(
       (groups, match) => {
         const month = getMonth(match.date);
@@ -36,7 +46,7 @@ export default function TeamCalendar() {
     );
   }, [activeTeam]);
 
-  const cupCount = activeTeam.matches.filter((match) => match.kind === "coupe").length;
+  const cupCount = activeTeam?.matches.filter((match) => match.kind === "coupe").length ?? 0;
 
   return (
     <section className="calendar-section" id="calendrier">
@@ -47,17 +57,17 @@ export default function TeamCalendar() {
             <h2>Calendriers des équipes.</h2>
           </div>
           <div className="calendar-intro">
-            <p>Retrouvez les rencontres actuellement programmées pour les huit équipes engagées confirmées.</p>
+            <p>Retrouvez les rencontres actuellement programmées pour les équipes engagées confirmées.</p>
             <strong>Calendrier 2026-2027 — horaires susceptibles d’être modifiés</strong>
           </div>
         </div>
 
         <nav className="calendar-filters" aria-label="Choisir une équipe">
-          {teamCalendars.map((team) => (
+          {calendarTabs.map((team) => (
             <button
               type="button"
-              className={team.slug === activeTeam.slug ? "active" : ""}
-              aria-pressed={team.slug === activeTeam.slug}
+              className={team.slug === activeTab.slug ? "active" : ""}
+              aria-pressed={team.slug === activeTab.slug}
               onClick={() => setActiveSlug(team.slug)}
               key={team.slug}
             >
@@ -70,45 +80,59 @@ export default function TeamCalendar() {
           <header className="calendar-team-header">
             <div>
               <span>Équipe sélectionnée</span>
-              <h3>{activeTeam.label}</h3>
-              <p>{activeTeam.division}</p>
+              <h3>{activeTab.label}</h3>
+              <p>{activeTab.division}</p>
             </div>
-            <div className="calendar-counts">
-              <span><strong>{activeTeam.matches.length}</strong> rencontres</span>
-              <span><strong>{cupCount}</strong> en coupe</span>
-            </div>
+            {activeTeam && (
+              <div className="calendar-counts">
+                <span><strong>{activeTeam.matches.length}</strong> rencontres</span>
+                <span><strong>{cupCount}</strong> en coupe</span>
+              </div>
+            )}
           </header>
 
-          <div className="calendar-timeline">
-            {months.map((month) => (
-              <section className="calendar-month" key={month.key} aria-labelledby={`month-${activeTeam.slug}-${month.key}`}>
-                <h4 id={`month-${activeTeam.slug}-${month.key}`}>{month.label}</h4>
-                <div className="calendar-match-list">
-                  {month.matches.map((match) => (
-                    <article className={`calendar-match ${match.kind}`} key={match.id}>
-                      <div className="match-date">
-                        <strong>{match.date.slice(0, 5)}</strong>
-                        <span>{match.time}</span>
-                      </div>
-                      <div className="match-opponent">
-                        <span className={`venue-badge ${match.venue === "Domicile" ? "home" : "away"}`}>{match.venue}</span>
-                        <strong>{match.opponent}</strong>
-                      </div>
-                      <div className="match-competition">
-                        {match.kind === "coupe" && <span className="cup-badge">Coupe</span>}
-                        <span>{match.competition}</span>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
+          {activeTeam ? (
+            <>
+              <div className="calendar-timeline">
+                {months.map((month) => (
+                  <section className="calendar-month" key={month.key} aria-labelledby={`month-${activeTeam.slug}-${month.key}`}>
+                    <h4 id={`month-${activeTeam.slug}-${month.key}`}>{month.label}</h4>
+                    <div className="calendar-match-list">
+                      {month.matches.map((match) => (
+                        <article className={`calendar-match ${match.kind}`} key={match.id}>
+                          <div className="match-date">
+                            <strong>{match.date.slice(0, 5)}</strong>
+                            <span>{match.time}</span>
+                          </div>
+                          <div className="match-opponent">
+                            <span className={`venue-badge ${match.venue === "Domicile" ? "home" : "away"}`}>{match.venue}</span>
+                            <strong>{match.opponent}</strong>
+                          </div>
+                          <div className="match-competition">
+                            {match.kind === "coupe" && <span className="cup-badge">Coupe</span>}
+                            <span>{match.competition}</span>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
 
-          <footer className="calendar-source">
-            <p>Calendrier publié à titre informatif. Vérifiez l’horaire auprès du club avant le déplacement.</p>
-            <a href={activeTeam.source} target="_blank" rel="noreferrer">Consulter la source SportCorico <span>↗</span></a>
-          </footer>
+              <footer className="calendar-source">
+                <p>Calendrier publié à titre informatif. Vérifiez l’horaire auprès du club avant le déplacement.</p>
+                <a href={activeTeam.source} target="_blank" rel="noreferrer">Consulter la source SportCorico <span>↗</span></a>
+              </footer>
+            </>
+          ) : (
+            <div className="calendar-pending">
+              <span aria-hidden="true">01</span>
+              <div>
+                <strong>Le programme vous sera communiqué bientôt !</strong>
+                <p>Les rencontres des Seniors 1 seront ajoutées ici dès validation du calendrier.</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

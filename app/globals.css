@@ -943,6 +943,42 @@ body { background: var(--ink); color: var(--paper); }
   text-transform: uppercase;
 }
 
+.calendar-pending {
+  min-height: 360px;
+  padding: clamp(46px, 7vw, 86px);
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: clamp(36px, 7vw, 84px);
+  align-items: center;
+}
+
+.calendar-pending > span {
+  color: var(--red);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 64px;
+  font-style: italic;
+  line-height: 1;
+}
+
+.calendar-pending strong {
+  display: block;
+  max-width: 18ch;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(38px, 5vw, 62px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.calendar-pending p {
+  max-width: 52ch;
+  margin: 28px 0 0;
+  color: #655f57;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
 /* Équipes — saison 2026-2027 */
 .teams-season {
   padding-left: 25px;
@@ -1506,6 +1542,22 @@ body { background: var(--ink); color: var(--paper); }
 
   .calendar-source a {
     width: fit-content;
+  }
+
+  .calendar-pending {
+    min-height: 330px;
+    padding: 42px 26px;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .calendar-pending > span {
+    font-size: 42px;
+  }
+
+  .calendar-pending strong {
+    font-size: clamp(36px, 11vw, 48px);
+    line-height: 1.12;
   }
 
   .buvette-heading {
