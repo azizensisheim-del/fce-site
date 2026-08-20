@@ -112,6 +112,23 @@ export default function TeamCalendar() {
                             {match.kind === "coupe" && <span className="cup-badge">Coupe</span>}
                             <span>{match.competition}</span>
                           </div>
+                          <div
+                            className={`match-score${match.score ? " completed" : ""}`}
+                            aria-label={
+                              match.score
+                                ? `Score : FC Ensisheim ${match.score.fce}, ${match.opponent} ${match.score.opponent}`
+                                : `Score de FC Ensisheim contre ${match.opponent} à compléter`
+                            }
+                            data-match-id={match.id}
+                          >
+                            <span className="match-score-label">Score</span>
+                            <div className="match-score-values" aria-hidden="true">
+                              <strong>{match.score?.fce ?? "—"}</strong>
+                              <span>:</span>
+                              <strong>{match.score?.opponent ?? "—"}</strong>
+                            </div>
+                            <span className="match-score-teams">FCE · ADV.</span>
+                          </div>
                         </article>
                       ))}
                     </div>

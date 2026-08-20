@@ -6,6 +6,10 @@ export type CalendarMatch = {
   venue: "Domicile" | "Extérieur";
   competition: string;
   kind: "championnat" | "coupe";
+  score?: {
+    fce: number;
+    opponent: number;
+  };
 };
 
 export type TeamCalendar = {
