@@ -7,14 +7,14 @@ Le site public reste accessible sans compte. Les comptes internes sont créés u
 | Rôle | Lecture publique | Lecture interne | Son ou ses pôles | Autres pôles | Membres et droits | Suppression définitive |
 |---|---:|---:|---:|---:|---:|---:|
 | Visiteur | Oui | Non | Non | Non | Non | Non |
-| Responsable de pôle | Oui | Oui | Créer, modifier, placer à la corbeille | Lecture interne | Non | Non |
+| Responsable de pôle | Oui | Oui | Créer, modifier, publier, placer à la corbeille | Lecture interne | Non | Non |
 | Administrateur | Oui | Oui | Contrôle total | Contrôle total | Oui | Oui |
 
-La publication est une permission séparée. Par défaut, un responsable prépare un brouillon et l’administrateur le publie. Une personne peut être responsable de plusieurs pôles.
+La publication fait partie du rôle de responsable : aucun accord préalable de l’administrateur n’est requis. Un responsable ne peut publier que dans le ou les pôles qui lui sont attribués. Une personne peut être responsable de plusieurs pôles.
 
 ## Parcours recommandé
 
-1. L’administrateur importe un CSV contenant `nom`, `email`, `role`, `poles` et éventuellement `peut_publier`.
+1. L’administrateur importe un CSV contenant `nom`, `email`, `role` et `poles`.
 2. Le serveur normalise les e-mails, refuse les doublons et valide les rôles et pôles.
 3. Un compte inactif est créé avec un jeton d’invitation aléatoire, à usage unique, valable 48 heures.
 4. Le membre reçoit un lien d’activation. Aucun mot de passe provisoire n’est envoyé en clair.
@@ -39,10 +39,10 @@ La fonction `canAccess` de `lib/access-control.ts` est la source de vérité cô
 ## Format attendu
 
 ```csv
-nom,email,role,poles,peut_publier
-Camille Martin,camille@example.fr,admin,,oui
-Alex Durand,alex@example.fr,pole_manager,sportif,non
-Nora Meyer,nora@example.fr,pole_manager,"animations;buvette",oui
+nom,email,role,poles
+Camille Martin,camille@example.fr,admin,
+Alex Durand,alex@example.fr,pole_manager,sportif
+Nora Meyer,nora@example.fr,pole_manager,"animations;buvette"
 ```
 
 Les visiteurs ne sont pas importés : ils utilisent le lien public.

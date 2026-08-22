@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { canAccess } from "../lib/access-control.ts";
 
 async function request(pathname, accept = "text/html") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -63,6 +64,33 @@ test("keeps sign-in disabled until the identity service is connected", async () 
   const html = await response.text();
   assert.match(html, /Activation prochaine/);
   assert.match(html, /adresse e-mail enregistrée par le club/i);
+  assert.match(html, /disabled/);
+});
+
+test("lets a pole manager publish directly only in an assigned pole", () => {
+  const manager = {
+    userId: "responsable-animations",
+    role: "pole_manager",
+    poles: ["animations"],
+    active: true,
+  };
+
+  assert.equal(canAccess(manager, { action: "publish", pole: "animations" }), true);
+  assert.equal(canAccess(manager, { action: "publish", pole: "sportif" }), false);
+  assert.equal(canAccess({ ...manager, active: false }, { action: "publish", pole: "animations" }), false);
+  assert.equal(canAccess({ ...manager, userId: null, role: "visitor" }, { action: "publish", pole: "animations" }), false);
+});
+
+test("renders the event composer without enabling anonymous publication", async () => {
+  const response = await request("/espace/evenements/nouveau");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Composer un événement/);
+  assert.match(html, /Affiche principale/);
+  assert.match(html, /Galerie photos/);
+  assert.match(html, /Lien de la vidéo/);
+  assert.match(html, /Publication directe/);
+  assert.match(html, /Connexion requise pour publier/);
   assert.match(html, /disabled/);
 });
 

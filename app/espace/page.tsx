@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const permissions = [
   { role: "Visiteur", detail: "Accès public, sans compte", rights: "Consulter les informations publiées du club.", tone: "public" },
-  { role: "Responsable de pôle", detail: "Compte créé sur invitation", rights: "Consulter l’interne et gérer les contenus de son ou ses pôles.", tone: "manager" },
-  { role: "Administrateur", detail: "Accès nominatif renforcé", rights: "Gérer tous les pôles, les membres, les droits et les publications.", tone: "admin" },
+  { role: "Responsable de pôle", detail: "Publication directe dans son périmètre", rights: "Créer, modifier et publier les événements de son ou ses pôles, sans validation préalable.", tone: "manager" },
+  { role: "Administrateur", detail: "Accès nominatif renforcé", rights: "Gérer tous les pôles, les membres et les droits, et intervenir en cas de besoin.", tone: "admin" },
 ] as const;
 
 export default function MemberAccessPage() {
@@ -24,6 +24,7 @@ export default function MemberAccessPage() {
             <p>Les visiteurs consultent librement le site. Les responsables et administrateurs se connectent avec un compte créé par le club.</p>
             <div className="access-actions">
               <Link className="button button-light" href="/espace/connexion">Connexion membre <span>→</span></Link>
+              <Link className="access-public-link" href="/espace/evenements/nouveau">Voir le module événements</Link>
               <Link className="access-public-link" href="/">Continuer comme visiteur</Link>
             </div>
           </div>
