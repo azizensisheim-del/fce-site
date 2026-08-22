@@ -1,12 +1,25 @@
 services:
   site:
-    image: fce-site:latest
-    build:
-      context: https://github.com/azizensisheim-del/fce-site.git#main
-      dockerfile: deploy/Dockerfile
+    image: node:22-alpine
     restart: unless-stopped
+    working_dir: /workspace
+    command:
+      - /bin/sh
+      - -ec
+      - |
+        apk add --no-cache git
+        if [ ! -f package.json ]; then
+          git clone --depth 1 https://github.com/azizensisheim-del/fce-site.git .
+        else
+          git pull --ff-only
+        fi
+        corepack enable
+        pnpm install --frozen-lockfile
+        pnpm build
+        exec node dist/standalone/server.js
     environment:
       NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
       PORT: "3000"
       HOSTNAME: 0.0.0.0
       SITE_URL: https://animations-fce.fr
@@ -20,9 +33,13 @@ services:
       timeout: 5s
       retries: 3
       start_period: 20s
+    volumes:
+      - fce_source:/workspace
     deploy:
       resources:
         limits:
-          cpus: "0.75"
-          memory: 1G
+          cpus: "1.50"
+          memory: 2G
 
+volumes:
+  fce_source:

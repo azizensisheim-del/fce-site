@@ -45,10 +45,11 @@ URL** peut utiliser directement ce fichier public :
 https://raw.githubusercontent.com/azizensisheim-del/fce-site/main/deploy/compose.hostinger-url.yaml
 ```
 
-Choisir `fce-site` comme nom de projet. Cette cible récupère le code depuis
-GitHub, construit l'image sur le VPS et publie temporairement le site sur le
-port `3001`. Elle sert au premier test avant le raccordement de Traefik et du
-domaine.
+Choisir `fce-site` comme nom de projet. Cette cible utilise une image Node
+standard, récupère le code depuis GitHub dans un volume Docker dédié, construit
+le site au démarrage et le publie temporairement sur le port `3001`. Elle sert
+au premier test avant la création de l'image de production, le raccordement de
+Traefik et celui du domaine.
 
 Pour une installation par terminal, depuis la racine du projet `site-fce` :
 
