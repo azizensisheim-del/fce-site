@@ -13,6 +13,7 @@ services:
         else
           git pull --ff-only
         fi
+        printf '%s\n' 'onlyBuiltDependencies:' '  - esbuild' '  - sharp' '  - workerd' > pnpm-workspace.yaml
         corepack enable
         pnpm install --frozen-lockfile
         pnpm build
