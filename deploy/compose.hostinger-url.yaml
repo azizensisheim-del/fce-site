@@ -19,6 +19,7 @@ services:
         pnpm build
         exec node dist/standalone/server.js
     environment:
+      CI: "true"
       NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: "1"
       PORT: "3000"
