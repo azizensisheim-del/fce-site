@@ -38,7 +38,19 @@ changer l'hébergement des autres pôles.
 
 ## 1. Test local sur le VPS
 
-Depuis la racine du projet `site-fce` :
+Depuis le gestionnaire Docker Hostinger, l'option **Composer à partir d'une
+URL** peut utiliser directement ce fichier public :
+
+```text
+https://raw.githubusercontent.com/azizensisheim-del/fce-site/main/deploy/compose.hostinger-url.yaml
+```
+
+Choisir `fce-site` comme nom de projet. Cette cible récupère le code depuis
+GitHub, construit l'image sur le VPS et publie temporairement le site sur le
+port `3001`. Elle sert au premier test avant le raccordement de Traefik et du
+domaine.
+
+Pour une installation par terminal, depuis la racine du projet `site-fce` :
 
 ```bash
 cp deploy/kvm2.example .env.kvm2
