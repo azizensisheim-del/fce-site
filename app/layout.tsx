@@ -4,9 +4,11 @@ import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "www.animations-fce.online";
+  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "animations-fce.fr";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const socialImage = `${protocol}://${host}/og.png`;
+  const requestOrigin = `${protocol}://${host}`;
+  const siteOrigin = process.env.SITE_URL?.replace(/\/+$/, "") ?? requestOrigin;
+  const socialImage = `${siteOrigin}/og.png`;
 
   return {
     title: "Football Club d’Ensisheim — Site officiel",
@@ -14,6 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: {
       icon: "/logo-fce.png",
       shortcut: "/logo-fce.png",
+    },
+    alternates: {
+      canonical: siteOrigin,
     },
     openGraph: {
       title: "Football Club d’Ensisheim",

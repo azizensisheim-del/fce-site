@@ -145,7 +145,71 @@ img { display: block; max-width: 100%; }
 .footer-links a:hover { color: var(--red); }
 .footer-bottom { padding-block: 22px; display: flex; justify-content: space-between; gap: 30px; border-top: 1px solid rgba(255,255,255,.12); color: #777; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
 
+/* Espace membres */
+.member-access { min-height: 100vh; background: var(--paper); }
+.member-header { min-height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.member-back, .signin-back { font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.member-back { padding-bottom: 7px; border-bottom: 2px solid var(--ink); }
+.access-hero { padding-block: 92px; position: relative; overflow: hidden; background: var(--red); color: white; }
+.access-hero::after { content: "FCE"; position: absolute; right: -25px; bottom: -70px; color: rgba(90,0,0,.14); font-family: Impact, sans-serif; font-size: clamp(230px,35vw,520px); line-height: .75; }
+.access-hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr .65fr; gap: 80px; align-items: end; }
+.access-hero h1, .signin-brand-panel h1 { margin: 0; max-width: 750px; font-family: Impact, sans-serif; font-size: clamp(68px,9vw,126px); font-weight: 400; letter-spacing: -.025em; line-height: .86; text-transform: uppercase; }
+.access-hero-grid > div > p:not(.section-kicker) { max-width: 650px; margin: 32px 0 0; color: rgba(255,255,255,.82); font-size: 18px; line-height: 1.65; }
+.access-actions { margin-top: 38px; display: flex; align-items: center; gap: 28px; }
+.access-public-link { padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.7); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.access-security-card { padding: 32px; border-top: 5px solid white; background: var(--ink); }
+.access-security-card > span { color: #ff7b80; font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+.access-security-card strong { display: block; margin-top: 30px; font-family: Impact, sans-serif; font-size: 38px; font-weight: 400; line-height: 1; text-transform: uppercase; }
+.access-security-card p { margin: 18px 0 0; color: rgba(255,255,255,.65); font-size: 14px; line-height: 1.6; }
+.access-roles { padding-block: 110px; }
+.access-section-heading { margin-bottom: 58px; display: grid; grid-template-columns: 1fr 390px; gap: 80px; align-items: end; }
+.access-section-heading h2, .access-invite h2, .signin-box h2 { font-size: clamp(52px,6vw,84px); }
+.access-section-heading > p { margin: 0; color: #5f5b55; font-size: 16px; line-height: 1.7; }
+.access-role-grid { display: grid; grid-template-columns: repeat(3,1fr); border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+.access-role-card { min-height: 340px; padding: 32px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.access-role-card.admin { background: var(--ink); color: white; }
+.role-index { margin-bottom: auto; color: var(--red); font-size: 11px; font-weight: 900; }
+.access-role-card h3 { margin: 50px 0 8px; font-family: Impact, sans-serif; font-size: 38px; font-weight: 400; line-height: 1; text-transform: uppercase; }
+.access-role-card p { color: #66615b; font-size: 14px; line-height: 1.6; }
+.access-role-card.admin p { color: rgba(255,255,255,.67); }
+.access-role-card .role-detail { margin: 0; color: var(--red); font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.access-invite { padding-block: 105px; background: var(--ink); color: white; }
+.access-invite-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 100px; }
+.access-invite ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.2); }
+.access-invite li { padding-block: 28px; display: grid; grid-template-columns: 44px 1fr; gap: 24px; border-bottom: 1px solid rgba(255,255,255,.2); }
+.access-invite li > span { display: grid; place-items: center; width: 38px; height: 38px; background: var(--red); font-weight: 900; }
+.access-invite li p { margin: 0; color: rgba(255,255,255,.67); line-height: 1.6; }
+.access-invite li strong { color: white; }
+.signin-page { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; background: white; }
+.signin-brand-panel { min-height: 100vh; padding: 58px max(48px,calc((50vw - 590px))); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; background: var(--red); color: white; }
+.signin-brand-panel::after { content: "1930"; position: absolute; left: -20px; bottom: 5%; color: rgba(92,0,0,.15); font-family: Impact, sans-serif; font-size: clamp(170px,24vw,350px); line-height: 1; }
+.signin-brand, .signin-brand-panel > div, .signin-season { position: relative; z-index: 1; }
+.signin-brand { display: flex; align-items: center; gap: 18px; font-family: Impact, sans-serif; font-size: 24px; line-height: .95; text-transform: uppercase; }
+.signin-brand img { width: 72px; }
+.signin-brand-panel h1 { max-width: 560px; font-size: clamp(62px,7vw,104px); }
+.signin-brand-panel > div > p:not(.section-kicker) { max-width: 510px; color: rgba(255,255,255,.8); font-size: 17px; line-height: 1.65; }
+.signin-season { font-size: 10px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+.signin-form-panel { padding: 60px max(40px,calc((50vw - 510px) / 2)); display: grid; place-items: center; }
+.signin-box { width: min(100%,510px); }
+.signin-back { display: inline-block; margin-bottom: 76px; color: #67615a; }
+.signin-box h2 { font-size: clamp(64px,7vw,92px); }
+.signin-intro { margin: 18px 0 34px; color: #625e58; line-height: 1.65; }
+.signin-form { display: grid; gap: 11px; }
+.signin-form > label { margin-top: 10px; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.signin-form input[type="email"], .signin-form input[type="password"] { width: 100%; height: 56px; padding: 0 17px; border: 1px solid #c9c4ba; border-radius: 0; background: #f5f2ec; color: #777; font: inherit; }
+.signin-options { margin: 8px 0 12px; display: flex; justify-content: space-between; gap: 20px; color: #777169; font-size: 12px; }
+.signin-form button { height: 58px; padding-inline: 20px; display: flex; align-items: center; justify-content: space-between; border: 0; background: #aaa59d; color: white; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; cursor: not-allowed; }
+.signin-status { margin-top: 24px; padding: 18px 20px; border-left: 4px solid var(--red); background: #f3f0e9; }
+.signin-status strong { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.signin-status p, .signin-help { color: #67615a; font-size: 12px; line-height: 1.55; }
+.signin-status p { margin: 7px 0 0; }
+.signin-help { margin-top: 26px; }
+
 @media (max-width: 980px) {
+  .access-hero-grid, .access-invite-grid { grid-template-columns: 1fr; }
+  .access-security-card { max-width: 520px; }
+  .signin-page { grid-template-columns: .82fr 1.18fr; }
+  .signin-brand-panel { padding-inline: 36px; }
   .desktop-nav, .header-cta { display: none; }
   .mobile-menu { display: block; position: relative; }
   .mobile-menu summary { list-style: none; padding: 13px 16px; border: 1px solid var(--ink); cursor: pointer; font-size: 11px; font-weight: 900; text-transform: uppercase; }
@@ -164,6 +228,24 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 680px) {
+  .member-header { min-height: 84px; }
+  .member-header .brand span, .member-back span { display: none; }
+  .access-hero { padding-block: 68px; }
+  .access-hero-grid { gap: 54px; }
+  .access-hero h1 { font-size: clamp(58px,19vw,82px); }
+  .access-actions { align-items: flex-start; flex-direction: column; }
+  .access-roles { padding-block: 76px; }
+  .access-section-heading { grid-template-columns: 1fr; gap: 30px; }
+  .access-role-grid { grid-template-columns: 1fr; }
+  .access-role-card { min-height: 300px; }
+  .access-invite { padding-block: 76px; }
+  .access-invite-grid { gap: 48px; }
+  .signin-page { display: block; }
+  .signin-brand-panel { min-height: 380px; padding: 30px 22px 38px; }
+  .signin-brand-panel h1 { font-size: clamp(52px,17vw,72px); }
+  .signin-brand-panel > div > p:not(.section-kicker), .signin-season { display: none; }
+  .signin-form-panel { padding: 46px 22px 70px; }
+  .signin-back { margin-bottom: 50px; }
   .section-shell { width: min(100% - 30px, 1180px); }
   .preview-notice { justify-content: flex-start; overflow: hidden; white-space: nowrap; }
   .preview-notice span:last-child { display: none; }

@@ -118,7 +118,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a className="header-cta" href="#agenda">Voir l’agenda</a>
+        <a className="header-cta" href="/espace">Espace membres</a>
 
         <details className="mobile-menu">
           <summary aria-label="Ouvrir le menu">Menu</summary>
@@ -131,6 +131,7 @@ export default function Home() {
             <a href="#buvette">Buvette</a>
             <a href="#agenda">Agenda</a>
             <a href="#contact">Contact</a>
+            <a href="/espace">Espace membres</a>
           </nav>
         </details>
       </header>
@@ -360,7 +361,7 @@ export default function Home() {
           <div className="footer-links">
             <div><h3>Le site</h3><a href="#club">Le club</a><a href="#equipes">Équipes</a><a href="#calendrier">Calendriers</a><a href="#actualites">Actualités</a><a href="#agenda">Agenda</a></div>
             <div><h3>Les pôles</h3><a href="#poles">Sportif</a><a href="#poles">Technique</a><a href="#poles">Animations</a><a href="#buvette">Buvette</a></div>
-            <div><h3>Nous suivre</h3><a href="#contact">Facebook</a><a href="#contact">Instagram</a><span>Contact — à venir</span></div>
+            <div><h3>Nous suivre</h3><a href="#contact">Facebook</a><a href="#contact">Instagram</a><a href="https://animations-fce.online" target="_blank" rel="noreferrer">Marché aux puces ↗</a><a href="/espace">Espace membres</a><span>Contact — à venir</span></div>
           </div>
         </div>
         <div className="footer-bottom section-shell">

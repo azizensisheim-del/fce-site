@@ -1,0 +1,27 @@
+services:
+  site:
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.fce-site.rule=Host(`${FCE_HOST:?FCE_HOST doit etre defini}`)"
+      - traefik.http.routers.fce-site.entrypoints=websecure
+      - traefik.http.routers.fce-site.tls=true
+      - traefik.http.routers.fce-site.tls.certresolver=letsencrypt
+      - traefik.http.routers.fce-site.service=fce-site
+      - "traefik.http.routers.fce-site-www.rule=Host(`www.${FCE_HOST:?FCE_HOST doit etre defini}`)"
+      - traefik.http.routers.fce-site-www.entrypoints=websecure
+      - traefik.http.routers.fce-site-www.tls=true
+      - traefik.http.routers.fce-site-www.tls.certresolver=letsencrypt
+      - traefik.http.routers.fce-site-www.middlewares=fce-site-www-redirect
+      - traefik.http.routers.fce-site-www.service=fce-site
+      - "traefik.http.middlewares.fce-site-www-redirect.redirectregex.regex=^https?://www\\.(.+)"
+      - "traefik.http.middlewares.fce-site-www-redirect.redirectregex.replacement=https://$${1}"
+      - traefik.http.middlewares.fce-site-www-redirect.redirectregex.permanent=true
+      - traefik.http.services.fce-site.loadbalancer.server.port=3000
+      - traefik.docker.network=traefik-proxy
+    networks:
+      - default
+      - traefik-proxy
+
+networks:
+  traefik-proxy:
+    external: true

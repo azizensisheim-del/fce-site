@@ -1,0 +1,12 @@
+node_modules
+dist
+.next
+.vinext
+.wrangler
+.git
+.env*
+*.log
+coverage
+work
+outputs
+

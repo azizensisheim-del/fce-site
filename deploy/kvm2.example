@@ -1,0 +1,10 @@
+# Domaine public qui pointera vers l'adresse IP du VPS.
+FCE_HOST=animations-fce.fr
+
+# Le port de test reste local au VPS pour ne pas exposer un service sans HTTPS.
+FCE_BIND_ADDRESS=127.0.0.1
+FCE_PORT=3001
+
+# Réserve la majorité du KVM 2 à n8n et aux services système.
+FCE_MEMORY_LIMIT=1g
+FCE_CPU_LIMIT=0.75
