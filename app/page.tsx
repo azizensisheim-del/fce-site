@@ -1,5 +1,12 @@
 import TeamCalendar from "./TeamCalendar";
 
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/fcensisheim" },
+  { label: "Instagram", href: "https://www.instagram.com/fc_ensisheim/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/fc-ensisheim" },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UChYHLjwie5JJheatse6BVWQ" },
+] as const;
+
 const poles = [
   {
     number: "01",
@@ -348,7 +355,13 @@ export default function Home() {
           <p className="section-kicker light">Rejoignez l’aventure</p>
           <h2>Envie de faire partie du collectif ?</h2>
           <p>Joueur, éducateur, dirigeant, bénévole ou partenaire : il y a toujours une place pour vous au FCE.</p>
-          <span className="button button-light">Coordonnées à venir <span>→</span></span>
+          <nav className="join-socials" aria-label="Réseaux sociaux du club">
+            {socialLinks.map((social) => (
+              <a href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                {social.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </nav>
         </div>
       </section>
 
@@ -361,7 +374,16 @@ export default function Home() {
           <div className="footer-links">
             <div><h3>Le site</h3><a href="#club">Le club</a><a href="#equipes">Équipes</a><a href="#calendrier">Calendriers</a><a href="#actualites">Actualités</a><a href="#agenda">Agenda</a></div>
             <div><h3>Les pôles</h3><a href="#poles">Sportif</a><a href="#poles">Technique</a><a href="#poles">Animations</a><a href="#buvette">Buvette</a></div>
-            <div><h3>Nous suivre</h3><a href="#contact">Facebook</a><a href="#contact">Instagram</a><a href="https://animations-fce.online" target="_blank" rel="noreferrer">Marché aux puces ↗</a><a href="/espace">Espace membres</a><span>Contact — à venir</span></div>
+            <div>
+              <h3>Nous suivre</h3>
+              {socialLinks.map((social) => (
+                <a href={social.href} key={social.label} target="_blank" rel="noreferrer">
+                  {social.label} ↗
+                </a>
+              ))}
+              <a href="https://animations-fce.online" target="_blank" rel="noreferrer">Marché aux puces ↗</a>
+              <a href="/espace">Espace membres</a>
+            </div>
           </div>
         </div>
         <div className="footer-bottom section-shell">

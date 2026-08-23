@@ -35,6 +35,10 @@ test("server-renders the FCE homepage", async () => {
   assert.match(html, /Quatre pôles\. Un seul club\./);
   assert.match(html, /Calendriers des équipes/);
   assert.match(html, /href="https:\/\/animations-fce\.online"/);
+  assert.match(html, /href="https:\/\/www\.facebook\.com\/fcensisheim"/);
+  assert.match(html, /href="https:\/\/www\.instagram\.com\/fc_ensisheim\/"/);
+  assert.match(html, /href="https:\/\/www\.linkedin\.com\/company\/fc-ensisheim"/);
+  assert.match(html, /href="https:\/\/www\.youtube\.com\/channel\/UChYHLjwie5JJheatse6BVWQ"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
